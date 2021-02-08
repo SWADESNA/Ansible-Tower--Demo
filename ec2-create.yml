@@ -12,7 +12,7 @@
         image: ami-0a74bfeb190bd404f
         region: ap-south-1
         wait: yes
-        group: srout-sg
+        group: Tower-sg
         count: 1
         vpc_subnet_id: subnet-06305ed7efb820c39
         assign_public_ip: yes
