@@ -1,0 +1,27 @@
+- hosts: all
+  become: true
+  tasks:   
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+    
+    - name: Install git
+      yum:
+        name: git
+        state: present
+    
+    - name: Remove old documentroot
+      file:
+        path: /usr/share/nginx/html
+        state: absent
+     
+    - name: add index.html file
+      git:
+        repo: https://github.com/rchincholkar/web.git
+        dest: /usr/share/nginx/html/
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
