@@ -5,16 +5,16 @@
   tasks:
     - name: launching AWS instance using Ansible
       ec2:
-        key_name: rahulc
+        key_name: srout-1
         instance_type: t2.micro
         instance_tags:
-          Name: "rahulc-testing101"
+          Name: "srout-testing101"
         image: ami-0a74bfeb190bd404f
         region: ap-south-1
         wait: yes
-        group: rahulc-sg
+        group: srout-sg
         count: 1
-        vpc_subnet_id: subnet-f58e6f9c
+        vpc_subnet_id: subnet-06305ed7efb820c39
         assign_public_ip: yes
       register: results
     - name: "Artifact URL of test results to Tower Workflows"
